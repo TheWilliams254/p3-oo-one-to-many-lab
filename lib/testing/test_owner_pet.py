@@ -33,6 +33,7 @@ def test_checks_pet_type():
 
 def test_pet_has_all():
     """Test Pet class has variable all, storing all instances of Pet"""
+    Pet.all = []
     pet1 = Pet("Whiskers", "cat")
     pet2 = Pet("Jerry", "reptile")
 
@@ -40,17 +41,17 @@ def test_pet_has_all():
     assert pet2 in Pet.all
     assert len(Pet.all) == 2
 
-    Pet.all = []
 
 def test_owner_has_pets():
     """Test Owner class has method pets(), returning all related pets"""
+    Pet.all = []
     owner = Owner("Ben")
     pet1 = Pet("Fido", "dog", owner)
     pet2 = Pet("Clifford", "dog", owner)
 
     assert owner.pets() == [pet1, pet2]
 
-    Pet.all = []
+    
 
 def test_owner_adds_pets():
     """Test Owner class has method add_pet(), validating and adding a pet"""
